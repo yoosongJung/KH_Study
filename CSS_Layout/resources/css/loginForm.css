@@ -1,0 +1,43 @@
+
+#login {
+    width: 100%;
+    height: 20%;
+}
+#login-header {
+    height: 50px;
+}
+    #login-header-layer1 {
+        height: 100%;
+        width: 65%;
+        float: left;
+    }
+        #id-field {
+            width: 100%;
+            height: auto;
+        }
+        #pw-field {
+            width: 100%;
+            height: auto;
+        }
+    #login-header-layer2 {
+        height: 100%;
+        width: 35%;
+        float: left;
+    }
+        #btn {
+            width: 90%;
+            height: 90%;
+            margin: 3px 0px 0px 6px;
+        }
+#login-footer {
+    height: 30px;
+    text-align: center;
+}
+#user-id {
+    width: 100%;
+    border: 1px solid black;
+}
+#user-pw {
+    width: 100%;
+    border: 1px solid black;
+}

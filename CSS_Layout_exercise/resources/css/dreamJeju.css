@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+#container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+#header {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    background-color: rgb(12, 71, 78);
+}
+    #logo a[href="#"] {
+        color : white;
+        text-decoration: none;
+        font-family: 'Pacifico', cursive;
+        font-size: xx-large;
+        color: white;
+    }
+    #logo {
+        height: inherit;
+        width: 25%;
+        /* display: flex;
+        justify-content: center;
+        align-items: center; */
+    }
+        
+    nav {
+        height: 100%;
+        width: 75%;
+        display: flex;
+        padding-top: 20px;
+    }
+        ul {
+            list-style-type: none;
+
+        }
+        nav ul {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-end;
+                width: 100%;
+            }
+            nav ul li {
+                width: 25%;
+                height: 33%;
+                color: white;
+                font-size: 13px;
+            }
+                li a {
+                    text-decoration: none;
+                    color: white;
+                }
+h2 {
+    margin-bottom: -20px;
+}
+main {
+    width: 1000px;
+    height: 70%;
+    margin: 5% auto;
+}
+    .section {
+        width: 100%;
+        height: 50%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 40px;
+    }
+        div img {
+            border-radius: 12%;
+            height: 100%;
+        }
+        div p, div ul {
+            height: 100%;
+            margin-left: 50px;
+        }
+        
+footer {
+    height: 15%;
+    border-top: 2px solid #222;
+}
+    footer section {
+        margin-left: 50px;
+    }
+    footer ul li {
+        float: left;
+        font-size: 10px;
+        padding: 5px 20px;
+        border-right: 1px solid #ddd;
+    }
+        footer ul li:last-child {
+            border: none;
+        }

@@ -1,0 +1,57 @@
+<!DOCTYPE ko>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>자리 배치도 만들기</title>
+        <style>
+            table {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            td {
+                border: 1px solid black;
+                width: 80px;
+                height: 30px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>자리 배치도</h1>
+        <button onclick="seatMake();">배치 생성</button>
+        <script>
+            function seatMake() {
+                var people = prompt("입장객은 몇 명인가요?");
+                var perLine = prompt("한줄에 몇 명씩 앉습니까?");
+                var seatNo = 1;
+                document.write("<table>");
+                    if(people % perLine == 0) { //인원수와 한줄당 인원이 맞아떨어질때
+                        for(var i = 1; i <= people/perLine; i++) {
+                            document.write("<tr>");
+                            for(var j = 1; j <= perLine; j++) {
+                                document.write("<td>좌석 " + seatNo + "</td>");
+                                seatNo++;
+                            }
+                            document.write("</tr>");
+                        }
+                    } else { //인원수와 한줄당 인원이 안 맞아떨어질때
+                        for(var i = 1; i <= people/perLine + 1; i++) {
+                            document.write("<tr>");
+                            for(var j = 1; j <= perLine; j++) {
+                                if(seatNo <= people) {
+                                    document.write("<td>좌석 " + seatNo + "</td>");
+                                } else {
+                                    document.write("<td></td>");
+                                }
+                                seatNo++;
+                            }
+                            document.write("</tr>");
+                        }
+                    }
+                document.write("</table>");
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>if연습문제2</title>
+        <style>
+            h1, div {
+                text-align: center;
+            }
+            .div_color {
+                text-align: center;
+                color: red;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            document.write("<h1>3의 배수 찾기</h1>")
+            var number = prompt("몇까지의 3의 배수를 찾을까요?");
+            var count = 0;
+            document.write("<div>");
+            for(var i = 1; i <= number; i++) {
+                if(i % 3 == 0) {
+                    count++;
+                    if(count*3 < number-2) {   // if(parseInt(number/3 != count))
+                        document.write(i + ", ");
+                    } else {
+                        document.write(i);
+                    }
+                }
+            }
+            document.write("</div>");
+            document.write("<br><div class=\"div_color\"><b>" 
+                + number + "까지 3의 배수의 갯수 : " + count + "</b></div>");
+            
+            
+        </script>
+    </body>
+</html>

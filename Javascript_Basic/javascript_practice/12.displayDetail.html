@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=\, initial-scale=1.0">
+        <title>상세설명 표시하고 닫기</title>
+        <style>
+            #item {
+                width: 500px;
+                position: relative;
+            }
+            img {
+                width: 100%;
+            }
+            .over {
+                position: absolute;
+                left: 20px;
+                bottom: 20px;
+            }
+            button {
+                background-color: rgba(255, 255, 255, 0.4);
+                border: 1px solid #ccc;
+                padding: 5px;
+            }
+            .detail {
+                width: 400px;
+                line-height: 1.8;
+                text-align: left;
+                --display: none;
+                opacity: 0;
+                transition: opacity 0.5s ease;
+            }
+            .detail.active {
+                opacity: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="item">
+            <img src="../images/flower3.png" alt="꽃3">
+            <button class="over" id="open">상세 설명 보기</button>
+        </div>
+        <div class="detail">
+            <h4>등심붓꽃</h4>
+            <p>
+                북아메리카 원산으로 각지에서 관상초로 흔히 심고 있는 귀화식물이다. 길가나 잔디밭에서 흔히 볼 수 있다. 아주 작은 씨앗을 무수히 많이 가지고 있는데 바람을 이용해 씨앗들을 날려보내거나, 뿌리줄기를 통해 동일한 개체들을 많이 만들어 냄으로써 번식한다.
+            </p>
+            <button id="close">상세 설명 닫기</button>
+        </div>
+        <script>
+            var btnOpen = document.querySelector("#open");
+            var btnClose = document.querySelector("#close");
+            btnOpen.addEventListener("click", function() {
+                //document.querySelector(".detail").style.opacity = "1";
+                document.querySelector(".detail").classList.add("active");
+                document.querySelector("#open").style.display = "none";
+            });
+            btnClose.addEventListener("click", function() {
+                //document.querySelector(".detail").style.opacity = "0";
+                document.querySelector(".detail").classList.remove("active");
+                document.querySelector("#open").style.display = "block";
+            });
+        </script>
+    </body>
+</html>

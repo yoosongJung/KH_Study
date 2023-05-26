@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>table 만들기</title>
+        <style>
+            table {
+                border: 1px solid black;
+            }
+            td{
+                border: 1px solid black;
+                width: 50px;
+                height: 50px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>자동 테이블 만들기</h1>
+        <button onclick="tableMake();">테이블 생성</button>
+        <script>
+            function tableMake() {
+                var rowCount = prompt("테이블의 행의 갯수는?");
+                var colCount = prompt("테이블의 열의 갯수는?");
+                var number = 1;
+                document.write("<table border='1'>");
+                for(var i = 1; i <=rowCount; i++) {
+                    document.write("<tr>");
+                    for(var j = 1; j <= colCount; j++) {
+                        document.write("<td>" + number + "</td>");
+                        number++;
+                    }
+                    document.write("</tr>");
+                }
+                document.write("</table>");
+            }
+        </script>
+    </body>
+</html>

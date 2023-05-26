@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>계산기 실습</title>
+    </head>
+    <body>
+        <h2>간이 계산기 만들기</h2>
+        첫번째 값 : <input type="text" id="input1"> <br>
+        두번째 값 : <input type="text" id="input2"> <br>
+        <!-- <button>+</button> -->
+        <input type="button" value="+" onclick="calculate(this.value);">
+        <input type="button" value="-" onclick="calculate(this.value);">
+        <input type="button" value="x" onclick="calculate(this.value);">
+        <input type="button" value="/" onclick="calculate(this.value);">
+        <input type="button" value="%" onclick="calculate(this.value);">
+        <!-- this는 event가 발생한 태그 자체를 가져옴. -->
+        <br><br>
+        계산결과 : <span id="result"></span>
+        <script>
+            function calculate(value) {
+                var num1 = Number(document.querySelector("#input1").value);
+                var num2 = parseInt(document.querySelector("#input2").value);
+                var finalResult;
+                switch(value){
+                    case "+" : finalResult = num1 + num2;
+                    break;
+                    case "-" : finalResult = num1 - num2;
+                    break;
+                    case "x" : finalResult = num1 * num2;
+                    break;
+                    case "/" : finalResult = num1 / num2;
+                    break;
+                    case "%" : finalResult = num1 % num2;
+                    break;
+                }
+                document.querySelector("#result").innerText = finalResult;
+            }
+        </script>
+        </body>
+</html>

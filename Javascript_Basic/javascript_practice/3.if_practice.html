@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>if 연습1</title>
+        <style>
+            body {
+                text-align: center;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <script>
+            document.write("<h1>4의 배수일까 아닐까</h1>")
+            var number = prompt("숫자를 입력하세요.");
+            if(number != null && number != 0) {
+                if(number % 4 == 0) {
+                    document.write(number + " 는 4의 배수 입니다.");
+                } else {
+                    document.write(number + " 는 4의 배수가 아닙니다.");
+                }
+            } else {
+                document.write("잘못 입력하셨습니다.");
+            }
+        </script>
+    </body>
+</html>

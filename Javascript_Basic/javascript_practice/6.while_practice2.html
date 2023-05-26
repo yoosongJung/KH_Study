@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>while 연습문제</title>
+        <style>
+            body {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>while문을 사용한 팩토리얼 계산</h1>
+        <script>
+            var number = prompt("숫자를 입력하세요.");
+            var nFact = 1;
+            var i = 1;
+            //모델 방식 - 코드를 줄여줌
+            var msg = "";
+            if(number != null) {
+                while(i <=number) {
+                    nFact = nFact * i;
+                    i++;
+                }
+                msg = number + "! 의 값 : " + nFact;
+            } else {
+                msg = "값을 입력하지 않았습니다.";
+            }
+            document.write(msg);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>연습문제5</title>
+        <link rel="stylesheet" href="./css/practice5.css">
+    </head>
+    <body>
+        <div>
+            <h1>레드향 주문하기2</h1>
+            <form action="" method="post">
+                <fieldset>
+                    <legend>상품 선택</legend>
+                    <p>주문할 상품을 선택해 주세요.</p>
+                    <ul>
+                        <li>
+                            <input type="checkbox" id="present_3" required>
+                            <label for="present_3">선물용 3kg</label>
+                            <input type="number" value="0" max="5" min="1">개 <small>(최대 5개)</small>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="present_5" required>
+                            <label for="present_5">선물용 5kg</label>
+                            <input type="number" value="0" max="3" min="1">개 <small>(최대 3개)</small>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="home_3" required>
+                            <label for="home_3">가정용 3kg</label>
+                            <input type="number" value="0" max="5" min="1">개 <small>(최대 5개)</small>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="home_5" required>
+                            <label for="home_5">가정용 5kg</label>
+                            <input type="number" value="0" max="3" min="1">개 <small>(최대 3개)</small>
+                        </li>
+                    </ul>
+                    <p>포장 선택</p>
+                    <ul>
+                        <li>
+                            <input type="radio" name="packing" id="pack">
+                            <label for="pack">선물 포장</label><br>
+                        </li>
+                        <li>
+                            <input type="radio" name="packing" id="nonPack">
+                            <label for="nonPack">선물 포장 안 함</label>
+                        </li>
+                    </ul>
+                </fieldset>
+                <fieldset>
+                    <legend>배송 정보</legend>
+                    <ul>
+                        <li>
+                            <label for="user_name">이름</label>
+                            <input type="text" id="user_name" required>
+                        </li>
+                        <li>
+                            <label for="address">배송 주소</label>
+                            <input type="text" id="address" required>
+                        </li>
+                        <li>
+                            <label for="email">이메일</label>
+                            <input type="email" id="email" required>
+                        </li>
+                        <li>
+                            <label for="phone">연락처</label>
+                            <input type="tel" id="phone" required placeholder="하이픈 빼고 입력해주세요(01012341234)">
+                        </li>
+                        <li>
+                            <label for="d-day">배송 지정</label>
+                            <input type="date" id="d-day"> (주문일로부터 최소 3일 이후)
+                        </li>
+                        <li>
+                            <label for="memo">메모</label>
+                            <textarea id="memo"></textarea>
+                        </li>
+                    </ul>
+                </fieldset>
+                <div>
+                    <input type="submit" value="주문하기">
+                    <input type="reset" value="취소하기">
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

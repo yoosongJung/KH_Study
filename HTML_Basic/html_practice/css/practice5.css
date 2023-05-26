@@ -1,0 +1,34 @@
+body {
+    width: 70%;
+}
+ul {
+    list-style: none;
+}
+li {
+    margin: 10px;
+}
+    li label {
+        width: 80px;
+        text-align: left;
+        float: left;
+    }
+p, fieldset legend{
+    font-weight: bolder;
+}
+input[type=text], [type=email], [type=tel], textarea {
+    width: 300px;
+}
+
+form div {
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-evenly;
+}
+form div input {
+    width: 150px;
+    height: 40px;
+    text-align: center;
+    border: 1px solid #ccc;
+    background-color: #fafafa;
+    box-shadow: 1px 1px 1px #ccc;
+}

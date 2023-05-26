@@ -47,7 +47,30 @@
             익명함수를 매개변수로 활용 <br>함수도 하나의 자료형이기 때문에
         매개변수로도 전달 가능함.
         </h4>
+        <p id="p6" style="height: 230px;"></p>
+        <h3>익명함수를 리턴하는 함수</h3>
+        <input type="text" name="name" id="name">
+        <button onclick="jsReturnFunc();">실행확인</button>
+        <p id="p7"></p>
         <script>
+            var jsReturnFunc = function() {
+                var nameTag = document.querySelector("#name");
+                var pTag = document.getElementById("p7");
+                return function() {
+                    pTag.innerHTML = nameTag.value;
+                }();
+            }
+
+            callFuncTenTimes(calleeFunc);
+            function callFuncTenTimes(otherFunc) {
+                for(var i = 0; i <10; i++) {
+                    otherFunc(i);
+                }
+            }
+            
+            function calleeFunc(num) {
+                document.querySelector("#p6").innerHTML += (num + 1) + "번째 함수 호출 완료 <br>";
+            }
 
             function resultJsFunc5() {
                 var resultNum = jsFunc5(10,20,30);

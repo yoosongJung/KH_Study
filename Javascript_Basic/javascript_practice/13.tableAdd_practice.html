@@ -50,6 +50,7 @@
             function addUser() {
                 var formName = document.querySelector("#name").value;
                 var formAge = document.querySelector("#age").value;
+                
                 var formGender = document.querySelector("[name=gender]").value; console.log(formGender);
                 var formPhone = document.querySelector("#phone").value;
                 var formHobby = document.querySelector("[name=hobby]").value;
@@ -60,11 +61,20 @@
                 for(var i = 0; i < 5; i++) {
                     var addTd = document.createElement("td");
                     document.querySelector("#tbl").lastChild.appendChild(addTd);
+                    var tdDetail =document.querySelector("#tbl").lastChild.getElementsByTagName("td");
+                    switch(i) {
+                        case 0 : tdDetail[i].innerText = formName;
+                        break;
+                        case 1 : tdDetail[i].innerText = formAge;
+                        break;
+                        case 2 : tdDetail[i].innerText = formGender;
+                        break;
+                        case 3 : tdDetail[i].innerText = formPhone;
+                        break;
+                        case 4 : tdDetail[i].innerText = formHobby;
+                        break;
+                    }
                 } 
-                var tdDetail = document.getElementsByTagName("td");
-                tdDetail[0] = formName;
-                tdDetail[1] = formAge;
-                console.log(formName);
             }
         </script>
     </body>

@@ -6,7 +6,7 @@ header {
     display: flex;
 }
 #logo {
-    width: 30%;
+    width: 25%;
     height: 100%;
 }
     #logo img {
@@ -15,22 +15,53 @@ header {
     }
 #nav {
     height: 100%;
-    width: 70%;
+    width: 75%;
     background-size: cover;
-    background-image: url("../images/navbar3.PNG");
+    background-image: url("../images/navbar2.PNG");
     display: flex;
 }
     #nav2 {
-        width: 50%;
-        display: flex;
+        width: 45%;
+        text-align: center;
     }
         #nav2 input {
-            justify-content: center;
+            border-radius: 20px;
+            width: 70%;
+            height: 25%;
+            text-align: center;
+            margin-top: 30px;
+        }
+        i:hover {
+            font-size: xx-large;
+        }
+        #navSearch {
+            font-size: inherit;
+            background-color: rgba(0,0,0,0);
+            border: none;
         }
     #nav3 {
-        width: 50%;
+        width: 55%;
     }
-        #nav3 ul {
-            list-style-type: none;
-            display: flex;
+        #nav ul li {
+            margin: 5px 10px;
+        }
+        #nav ul li a {
+            font-size: x-large;
+            color: white;
+            font-family: 'Nanum Pen Script', cursive;
+            font-weight: 700;
+        }
+        #nav ul li a:hover {
+            color: black;
+        }
+        #nav ul li a:link {
+            text-decoration-line: none;
+        }
+        #nav ul li a:visited {
+            text-decoration-line: none;
+        }
+        @media screen and (max-width: 990px){
+            #navbarNavDropdown {
+                background-color: rgba(112, 200, 235, 0.5);
+            }
         }

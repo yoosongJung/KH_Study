@@ -32,6 +32,7 @@
             <input type="checkbox" name="hobby" value="climb" id="climb"><label for="climb"> 등산 </label>
             <br>
             <input type="button" value="추가하기" onclick="addUser();">
+            <input type="button" value="초기화" onclick="reset();">
             <p id="p3">
             <table id="tbl" width="500px" border="1" cellspacing="0">
                 <tr>
@@ -47,26 +48,64 @@
         </form>
 
         <script>
+            function reset() {
+                document.querySelector("#name").value = "";
+                document.querySelector("#age").value = "";
+                document.querySelector("#phone").value = "";
+                var hobby_length = document.getElementsByName("hobby").length;
+                var gender_length = document.getElementsByName("gender").length;
+                for(var i = 0; i < gender_length; i++) {
+                    document.getElementsByName("gender")[i].checked = false;
+                }
+                for(var i = 0; i < hobby_length; i++) {
+                    document.getElementsByName("hobby")[i].checked = false;
+                }
+            }
+
+
             function addUser() {
                 var formName = document.querySelector("#name").value;
                 var formAge = document.querySelector("#age").value;
                 var formGender = document.querySelector("[name=gender]:checked").value;
+                if(formGender == null){
+                    alert("성별을 선택해주세요.");
+                    return;  
+                }
+                var formPhone = document.querySelector("#phone").value;
+                
+                if(formName == ""){
+                    alert("이름을 입력해주세요.");
+                    return;  
+                }
+                if(formAge == ""){
+                    alert("나이를 입력해주세요.");
+                    return;  
+                } 
+                if(formPhone == ""){
+                    alert("전화번호를 입력해주세요.");
+                    return;  
+                } 
+
                 var gender = "";
                 if(formGender == "M") {
                     gender = "남";
                 } else if(formGender == "F") {
                     gender = "여";
                 }
-                var formPhone = document.querySelector("#phone").value;
                 var formHobby = "";
+                var count = 0;
                 var hobby_length = document.getElementsByName("hobby").length;
                 var gender_length = document.getElementsByName("gender").length;
                 for(var i = 0; i < hobby_length; i++) {
                     if (document.getElementsByName("hobby")[i].checked == true) {
-                        formHobby += document.getElementsByName("hobby")[i].value +" ";
+                        formHobby += document.getElementsByName("hobby")[i].nextSibling.innerText +" ";
+                        count++;
                     }
                 }
-                
+                if(count == 0) {
+                    alert("최소 1개 이상의 취미를 선택하세요.");
+                    return;
+                }
                 var addTr = document.createElement("tr");
                 document.querySelector("#tbl").appendChild(addTr);
                 for(var i = 0; i < 5; i++) {
@@ -85,20 +124,13 @@
                         case 4 : tdDetail[i].innerText = formHobby;
                         break;
                     }
-                } 
+                }
                 // var tableTag = document.getElementById("tbl");
-                // tableTag.innerHTML += "<tr><td>"+nameVal+"</td><td>"+ageVal+"</td><td>성별</td><td>"
-                //     +phoneVal+"</td><td>취미</td></tr>";
-
-                document.querySelector("#name").value = "";
-                document.querySelector("#age").value = "";
-                document.querySelector("#phone").value = "";
-                for(var i = 0; i < gender_length; i++) {
-                    document.getElementsByName("gender")[i].checked = false;
-                }
-                for(var i = 0; i < hobby_length; i++) {
-                    document.getElementsByName("hobby")[i].checked = false;
-                }
+                // tableTag.innerHTML += "<tr><td>"+formName+"</td><td>"+formAge+"</td><td>" + gender + "</td><td>"
+                //     +phoneVal+"</td><td>" + formHobby + "</td></tr>";
+                
+                reset();
+            
             }
         </script>
     </body>

@@ -1,12 +1,142 @@
-body {
-    height: 700px;
-}
+
 header {
-    height: 15%;
+    height: 8rem;
     display: flex;
 }
+.logo {
+    width: 25%;
+    height: 100%;
+}
+    .logo img {
+        width: 100%;
+        height: 100%;
+    }
+    #nav {
+    height: 100%;
+    width: 75%;
+    background-size: cover;
+    background-image: url("../images/navbar2.PNG");
+    display: flex;
+}
+    #nav2 {
+        width: 45%;
+        text-align: center;
+    }
+    #nav2 input {
+            border-radius: 20px;
+            width: 70%;
+            height: 25%;
+            text-align: center;
+            margin-top: 30px;
+        }
+        i:hover {
+            font-size: xx-large;
+        }
+        #navSearch {
+            font-size: inherit;
+            background-color: rgba(0,0,0,0);
+            border: none;
+        }
+        #nav3 {
+            width: 55%;
+        }
+        #nav ul li {
+            margin: 5px 10px;
+        }
+        #nav ul li a {
+            font-size: x-large;
+            color: white;
+            font-family: 'Nanum Pen Script', cursive;
+            font-weight: 700;
+        }
+        #nav ul li a:hover, .footer2 ul li a:hover {
+            color: black;
+        }
+        #nav ul li a:link, .footer2 ul li a:link{
+            text-decoration-line: none;
+        }
+        #nav ul li a:visited, .footer2 ul li a:visited {
+            text-decoration-line: none;
+        }
+
+main {
+    height: 100rem;
+    display: flex;
+}
+    #main_left {
+        width: 15%;
+    }
+    #main_middle {
+        width: 70%;
+    }
+    #main_right {
+        width: 15%;
+    }
+        table {
+            width: 60%;
+            height: 20rem;
+            border: 3px solid rgb(234, 234, 53);
+            float: right;
+            position: sticky;
+            top: 7.5rem;
+            margin-top: 7.5rem;
+        }
+        table tr {
+            border: 5px solid rgb(234, 234, 53);
+        }
+        table tr th {
+                font-family: 'Nanum Pen Script', cursive;
+                font-size: larger;
+                font-weight: 900;
+                background-color: rgb(234, 234, 53);
+                text-align: center;
+            }
+            table tr td a img{
+                width: 90%;
+            }
+            table tr td {
+                position: relative;
+                /* display: inline-block; */
+            }
+            table tr td a {
+                display: flex;
+            }
+            .arrow_box {
+                display: none;
+                position: absolute;
+                width: 100%;
+                padding: 8px;
+                left: 0;
+                -webkit-border-radius: 8px;
+                -moz-border-radius: 8px;
+                border-radius: 8px;
+                background: #333;
+                color: #fff;
+                font-size: 14px;
+                z-index: 1;
+            }
+            
+            .arrow_box:after {
+                position: absolute;
+                bottom: 100%;
+                left: 50%;
+                width: 0;
+                height: 0;
+                margin-left: -10px;
+                border: solid transparent;
+                border-color: rgba(51, 51, 51, 0);
+                border-bottom-color: #333;
+                border-width: 10px;
+                pointer-events: none;
+                content: ' ';
+            }
+            
+            a:hover + p.arrow_box {
+                display: block;
+            }
+
 footer {
-    height: 10%;
+    height: 6rem;
 }
     #footer {
         height: 100%;
@@ -35,80 +165,36 @@ footer {
                 margin-bottom: -5px;
             }
             .footer1 ul li {
-                font-size: small;
+                font-size: medium;
                 color: black;
                 font-family: 'Nanum Pen Script', cursive;
                 font-weight: 900;
-                margin: 5px;
-                line-height: 0.5;
+                margin: 0px 5px;
+                line-height: 0.7;
             }
         .footer2 {
             width: 40%;
+            display: flex;
+            align-items: center;
         }
+            .footer2 ul {
+                display: flex;
+                height: 100%;
+                flex-wrap:  wrap;
+                list-style-type: none;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: -5px;
+            }
             .footer2 ul li {
-                margin: 5px 10px;
+                margin: 0px 10px;
             }
             .footer2 ul li a {
-                font-size: small;
+                font-size: large;
                 color: white;
                 font-family: 'Nanum Pen Script', cursive;
-                font-weight: 700;
+                font-weight: 900;
             }
-.logo {
-    width: 25%;
-    height: 100%;
-}
-    .logo img {
-        width: 100%;
-        height: 100%;
-    }
-#nav {
-    height: 100%;
-    width: 75%;
-    background-size: cover;
-    background-image: url("../images/navbar2.PNG");
-    display: flex;
-}
-    #nav2 {
-        width: 45%;
-        text-align: center;
-    }
-        #nav2 input {
-            border-radius: 20px;
-            width: 70%;
-            height: 25%;
-            text-align: center;
-            margin-top: 30px;
-        }
-        i:hover {
-            font-size: xx-large;
-        }
-        #navSearch {
-            font-size: inherit;
-            background-color: rgba(0,0,0,0);
-            border: none;
-        }
-    #nav3 {
-        width: 55%;
-    }
-        #nav ul li {
-            margin: 5px 10px;
-        }
-        #nav ul li a {
-            font-size: x-large;
-            color: white;
-            font-family: 'Nanum Pen Script', cursive;
-            font-weight: 700;
-        }
-        #nav ul li a:hover, .footer2 ul li a:hover {
-            color: black;
-        }
-        #nav ul li a:link, .footer2 ul li a:link{
-            text-decoration-line: none;
-        }
-        #nav ul li a:visited, .footer2 ul li a:visited {
-            text-decoration-line: none;
-        }
         @media screen and (max-width: 990px){
             #navbarNavDropdown {
                 background-color: rgba(112, 200, 235, 0.5);

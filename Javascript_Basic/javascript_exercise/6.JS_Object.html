@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>자바스크립트 객체</title>
+        <style>
+            .area-big {
+                height: 400px;
+                border: 1px solid #222;
+                background-color: #ccc;
+            }
+            .area {
+                height: 200px;
+                border: 1px solid #222;
+                background-color: #ccc;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>자바스크립트 객체</h1>
+        <h3>객체 선언 및 호출</h3>
+        <p>
+            객체는 키 값을 사용하여 value를 식별함 <br>
+            value에는 모든 자료형이 올 수 있다.
+        </p>
+        <button id="btn1">실행확인</button>
+        <div id="area1" class="area-big"></div>
+        <h3>객체의 키</h3>
+        <p>
+            객체의 키는 모든 문자열을 사용할 수 있다. <br>
+            키로 사용할 수 없는 단어를 키로 사용한 경우에는 무조건 대괄호를 사용해야
+            객체의 요소에 접근할 수 있다.
+        </p>
+        <button onclick="jsObject2();">실행확인</button>
+        <div id="area2" class="area"></div>
+        <h3>객체의 메소드(함수)</h3>
+        <p>
+            객체의 value 중 함수 자료형인 value를 메소드(함수)라 함
+        </p>
+        <button id="btn3">실행확인</button>
+        <div id="area3" class="area"></div>
+        <h3>객체와 반복문</h3>
+        <p>
+            객체의 value를 출력할 때에는 단순 for문으로는 사용할 수 없고
+            <br> for in문(foreach문)을 사용해야함.
+        </p>
+        <button id="btn4">실행확인</button>
+        <div id="area-for" class="area"></div>
+        <h3>객체의 키, 값 추가와 제거</h3>
+        <p>
+            처음 객체 생성 이후 키, 값을 추가하거나 제거하는 것을 동적으로 함
+        </p>
+        <button id="btn5">실행확인</button>
+        <div id="area5" class="area"></div>
+        <script>
+            document.querySelector("#btn5").onclick = function() {
+                var person = {
+                    "name" : "일용자",
+                    "hobby" : "낚시,수영,코딩",
+                    "strength" : "javascript",
+                    "dream" : "프론트엔드 개발자",
+                    "toString" : function() {
+                        var str = "";
+                        for(var keyword in person) {
+                            if(keyword != "toString") {
+                                str += keyword + " : " + person[keyword] + "<br>";
+                            }
+                        }
+                        // str += "name : " + person["name"] + "<br>";
+                        // str += "hobby : " + person["hobby"] + "<br>";
+                        // str += "strength : " + person["strength"] + "<br>";
+                        // str += "dream : " + person["dream"] + "<br>";
+                        return str;
+                    }
+                }
+                person.favorite = "마라탕";
+                delete(person.favorite);
+                delete(person.dream);
+                person.dream = "웹 개발자";
+                document.querySelector("#area5").innerHTML = person.toString();
+            }
+
+            document.querySelector("#btn4").addEventListener("click", function() {
+                var game = {
+                    "title" : "LOL",
+                    "price" : "free",
+                    "language" : "한국어",
+                    "supportOS" : "Everything",
+                    "service" : true
+                }
+                var div4Tag = document.querySelector("#area-for");
+                for(var keyword in game) {
+                    div4Tag.innerHTML += "Game의 " + keyword + " : " + game[keyword] + "<br>"
+                }
+                // div4Tag.innerHTML += "Game의 title : " + game.title + "<br>";
+                // div4Tag.innerHTML += "Game의 price : " + game.price + "<br>";
+                // div4Tag.innerHTML += "Game의 language : " + game.language + "<br>";
+                // div4Tag.innerHTML += "Game의 supportOS : " + game.supportOS + "<br>";
+                // div4Tag.innerHTML += "Game의 service : " + game.service + "<br>";
+            })
+
+            document.querySelector("#btn3").onclick = function() {
+                var divTag3 = document.querySelector("#area3");
+                var dog = new Object();
+                dog.name = "백지";
+                dog.birthday = "20131003";
+                dog.bark = function() {
+                    alert("왈왈");
+                    divTag3.innerHTML += "왈왈";
+                }
+                dog.eat = function() {
+                    divTag3.innerHTML += "백지가 밥을 먹습니다.";
+                    alert("와그작와그작");
+                }
+                dog.eat();
+            }
+
+            function jsObject2() {
+                var divTag2 = document.querySelector("#area2");
+                var objOne = {};
+                objOne.pName = "Front-end";
+                objOne["type"] = "jacascript";
+                objOne["I love you"] = "DOM";
+                objOne["I hate you"] = "programming";
+                divTag2.innerHTML += "I love you : " + objOne["I love you"] + "<br>"; 
+                divTag2.innerHTML += "I hate you : " + objOne["I hate you"] + "<br>"; 
+            }
+
+            document.querySelector("#btn1").addEventListener("click", function() {
+                var divTag1 = document.querySelector("#area1");
+                // product 객체 생성
+                var product = new Object(); // {};
+                product.pName = "Dry Mango";
+                product.type = "dried";
+                product.ingredient = ["mango", "sugar"];
+                divTag1.innerHTML += "product Name : " + product.pName + "<br>";
+                divTag1.innerHTML += "type : " + product.type + "<br>";
+                divTag1.innerHTML += "ingredient1 : " + product.ingredient[0] + "<br>";
+                divTag1.innerHTML += "ingredient2 : " + product.ingredient[1] + "<br>";
+            })
+            // var array = new Array();
+            // var number = new Number();
+            // var str = new String();
+            // var obj = new Object();
+            // obj = {};
+            // Date, Math, ...
+            var playerName = "David";
+            var playerLevel = 43;
+            var playerClass = "Knight";
+            var isArmed = true;
+
+            var playerArr = ["David", 43, "Knight", true];
+            //playerArr = new Array(); // []
+            var playerObj = new Object(); // {}
+            playerObj = {
+                "playerName" : "David",
+                "playerLevel" : 43,
+                "playerClass" : "Knight",
+                "isArmed" : true
+            }
+
+            var playerObj2 = new Object();
+            playerObj2.playerName = "Sera";
+            playerObj2.playerLevel = 99;
+            playerObj2.playerClass = "Priest";
+            playerObj2.isArmed = false;
+
+            var playerObj3 = new Object();
+            playerObj3["playerName"] = "John";
+            playerObj3["playerLevel"] = 122;
+            playerObj3["playerClass"] = "Archer";
+            playerObj3["isArmed"] = true;
+
+            console.log(playerObj);
+            console.log(playerObj2);
+            console.log(playerObj3);
+        </script>
+    </body>
+</html>

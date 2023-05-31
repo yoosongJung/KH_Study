@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>팩토리얼 계산</title>
+        <style>
+            body {
+                text-align: center;
+                padding-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>while문을 사용한 팩토리얼 계산</h1>
+        <script>
+            var num = prompt("숫자를 입력하세요.");
+            var i = 1;
+            var fac = 1;
+            var msg = "";
+            if(num != null) {
+                while(i <= num) {
+                    fac = fac * i;
+                    i++;
+                }
+                msg = num + "! 은 " + fac;
+            } else {
+                msg = "취소하셨습니다.";
+            }
+            document.write(msg);
+        </script>
+    </body>
+</html>

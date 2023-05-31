@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>테이블 생성하기</title>
+        <style>
+            table {
+                border: 1px solid #ccc;
+            }
+            td {
+                border: 1px solid #222;
+                padding: 15px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>테이블 생성</h1>
+        <script>
+            var rows = prompt("테이블 행의 갯수는?");
+            var cols = prompt("테이블 열의 갯수는?");
+            document.write("<table>");
+            var count = 1;
+            for(var i = 0; i < rows; i++) {
+                document.write("<tr>");
+                    for(var j = 0; j < cols; j++) {
+                        document.write("<td>" + count + "</td>");
+                        count++;
+                    }
+                document.write("</tr>");
+            }
+            document.write("</table>");
+
+        </script>
+    </body>
+</html>

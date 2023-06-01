@@ -54,7 +54,51 @@
         </p>
         <button id="btn5">실행확인</button>
         <div id="area5" class="area"></div>
+        <h3>객체의 in과 with 키워드</h3>
+        <p>
+            in : 객체 내부에 해당 속성이 있는지 확인하는 키워드
+            <br>
+            with : 호출시 코드를 줄여주는 키워드(객체명 생략가능)
+        </p>
+        <label>이름 : <input type="text" id="name"></label><br>
+        <label>국어 : <input type="text" id="kor"></label><br>
+        <label>영어 : <input type="text" id="eng"></label><br>
+        <label>수학 : <input type="text" id="math"></label><br>
+        <button onclick="jsobject6();">실행확인</button>
+        <div id="area6" class="area-big"></div>
         <script>
+            function jsobject6() {
+                var student = new Object();
+                student.name = document.querySelector("#name").value;
+                student.kor = Number(document.querySelector("#kor").value);
+                student.eng = Number(document.querySelector("#eng").value);
+                student.math = Number(document.querySelector("#math").value);
+                for(var key in student) {
+                    if(student[key] == "" || student[key] == 0) {
+                        switch(key) {
+                            case "name" : alert("이름을 입력해주세요.");
+                            break;
+                            case "kor" : alert("국어점수를 입력해주세요.");
+                            break;
+                            case "eng" : alert("영어점수를 입력해주세요.");
+                            break;
+                            case "math" : alert("수학점수를 입력해주세요.");
+                            break;
+                        }
+                        return false;
+                    }
+                }
+                with(student) {
+                    total = kor + eng + math;
+                    avg = (kor + eng + math)/3;
+                    document.querySelector("#area6").innerHTML = "이름 : " + name + "<br>국어 : " +
+                    kor + "<br>영어 : " + eng + "<br>수학 : " + math + 
+                    "<br>총점 : " + total + "<br>평균 : " + avg;
+                }
+                //in 키워드 : key값 존재 여부 true/false 리턴
+                console.log("kor" in student);
+            }
+
             document.querySelector("#btn5").onclick = function() {
                 var person = {
                     "name" : "일용자",

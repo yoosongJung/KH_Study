@@ -64,7 +64,26 @@
     <button onclick="student();">입력 및 출력</button>
 
     <script>
-        var member;
+        function student() {
+            var objectArr = new Array();
+            for(var i = 0; i < 3; i++) {
+                var student = new Object();
+                student.name = prompt((i+1) + "번째 학생 이름을 입력하세요.");
+                student.age = prompt((i+1) + "번째 학생 나이를 입력하세요.");
+                student.addr = prompt((i+1) + "번째 학생 주소를 입력하세요.");
+                objectArr.push(student);
+                
+            }
+            for(var i = 0; i < objectArr.length; i++) {
+                document.querySelectorAll("[name=name]")[i].innerHTML = objectArr[i].name;
+                document.querySelectorAll("[name=age]")[i].innerHTML = objectArr[i].age;
+                document.querySelectorAll("[name=addr]")[i].innerHTML = objectArr[i].addr;
+            }
+            console.log(objectArr);
+        }
+
+
+        var member = null;
         function insertMember() {
             member = new Object();
             member.name = prompt("이름을 입력하세요.");
@@ -73,9 +92,11 @@
         }
 
         function printMember() {console.log(member);
-            if(member.length < 1) {
-                alert("입력 정보 먼저 작성하세요.");
+            if(member == null) {
+                alert("입력버튼부터 눌러주세요.");
+                return false;
             }
+
             if(member.name == "" || member.age == "" || member.address == "") {
                 alert("입력 정보를 다 작성하세요.");
             } else {

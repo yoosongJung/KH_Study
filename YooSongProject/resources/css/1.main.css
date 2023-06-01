@@ -49,10 +49,10 @@ header {
             font-family: 'Nanum Pen Script', cursive;
             font-weight: 700;
         }
-        #nav ul li a:hover, .footer2 ul li a:hover {
+        #nav ul li a:hover, .footer2 ul li a:hover, .main_last a {
             color: black;
         }
-        #nav ul li a:link, .footer2 ul li a:link{
+        #nav ul li a:link, .footer2 ul li a:link, .col-md-4 a, .main_last a{
             text-decoration-line: none;
         }
         #nav ul li a:visited, .footer2 ul li a:visited {
@@ -60,7 +60,10 @@ header {
         }
 
 main {
-    height: 130rem;
+    /* overflow : hidden 했을때 높이 상관없이 요소들어갈때마다 자동으로 늘어남 */
+    /* overflow : clip 하면 hidden 적용 + sticky 사용할 수 있음 */
+    overflow:clip; 
+    height:auto;
     display: flex;
 }
     #main_left {
@@ -111,6 +114,7 @@ main {
             .popularBrand .carousel-inner .carousel-item > div:first-child {
                 display: block;
             }
+            
         }
     
         .popularBrand .carousel-inner .carousel-item.active,
@@ -131,22 +135,46 @@ main {
             .popularBrand .carousel-inner .carousel-item-prev {
                 transform: translateX(-25%);
             }
+
+            
         }
     
         .popularBrand .carousel-inner .carousel-item-end,
         .popularBrand .carousel-inner .carousel-item-start { 
             transform: translateX(0);
         }
+
+        .main_last>div {
+            width: 35%;
+        }
+            #main_notice>p, #main_QA>p {
+                color: red;
+                font-family: 'Nanum Pen Script', cursive;
+                font-weight: 900;
+                font-size: x-large;
+            }
+            #main_notice>div, #main_QA>div {
+                background-color: rgb(190, 223, 236);
+                padding: 10px;
+                margin-top: -15px;
+            }
     #main_right {
         width: 15%;
     }
+        #main_right button {
+            width: 60%;
+            float: right;
+            margin-top: 1rem;
+            position: sticky;
+            top: 28rem;
+        }
         #main_right table {
             width: 60%;
             height: 20rem;
             border: 3px solid rgb(234, 234, 53);
             float: right;
             position: sticky;
-            top: 7.5rem;
+            top: 7rem;
             margin-top: 7.5rem;
         }
         #main_right table tr {

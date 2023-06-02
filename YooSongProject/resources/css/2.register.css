@@ -36,7 +36,7 @@ form label {
   font-family: 'Nanum Pen Script', cursive;
 }
 
-#buyer .checkSameId {
+#buyer .buyerCheckSameId {
   padding: 3px;
   margin-left: 20px;
   font-family: 'Nanum Pen Script', cursive;
@@ -46,7 +46,7 @@ form label {
   color: white;
 }
 
-#seller .checkSellerNo, #seller .checkSameId {
+#seller .checkSellerNo, #seller .sellerCheckSameId {
   padding: 3px;
   margin-left: 20px;
   font-family: 'Nanum Pen Script', cursive;

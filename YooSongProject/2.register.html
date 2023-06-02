@@ -30,18 +30,18 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
-                        <li class="nav-item" style="margin-top: 13px;"><a href="#">회원가입</a></li>
-                        <li class="nav-item" style="margin-top: 13px;"><a href="">로그인</a></li>
-                        <li class="nav-item" style="margin-top: 13px;"><a href="">마이페이지</a></li>
-                        <li class="nav-item" style="margin-top: 13px;"><a href="">프리미엄</a></li>
+                        <li class="nav-item" style="margin-top: 13px;"><a href="./2.register.html">회원가입</a></li>
+                        <li class="nav-item" style="margin-top: 13px;"><a href="./3.login.html">로그인</a></li>
+                        <li class="nav-item" style="margin-top: 13px;"><a href="./4.myPage.html">마이페이지</a></li>
+                        <li class="nav-item" style="margin-top: 13px;"><a href="./5.premium.html">프리미엄</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 게시판
                             </a>
                             <ul class="dropdown-menu" style="background-color: skyblue;">
-                                <li><a class="dropdown-item" href="#">공지사항</a></li>
-                                <li><a class="dropdown-item" href="#">Q&A</a></li>
-                                <li><a class="dropdown-item" href="#">자유게시판</a></li>
+                                <li><a class="dropdown-item" href="./6.notice.html">공지사항</a></li>
+                                <li><a class="dropdown-item" href="./7.QandA.html">Q&A</a></li>
+                                <li><a class="dropdown-item" href="./8.freeBoard.html">자유게시판</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -58,7 +58,7 @@
                 <hr>
                 <div class="form">
                     <div id="buyer" class="container">
-                        <form action="" method="post">
+                        <form action="./2.registerSuccess.html" method="" onsubmit="return buyerCheckAdditional();">
                             <ul>
                                 <li style="display: flex; justify-content: center;">
                                     <label style="font-size: xx-large;">일반 회원가입</label>
@@ -71,8 +71,8 @@
                                 <li>
                                     <label for="buyer_id">아이디</label>
                                     <input type="text" id="buyer_id" required>
-                                    <input type="button" value="중복 체크" class="checkSameId">
-                                    <label class="valid"></label>
+                                    <input type="button" value="중복 체크" class="buyerCheckSameId">
+                                    <label class="buyerCheckId valid"></label>
                                 </li>
                                 <li>
                                     <label for="buyer_pw">비밀번호</label>
@@ -82,7 +82,7 @@
                                 <li>
                                     <label for="buyer_pw_check">비밀번호 확인</label>
                                     <input type="password" id="buyer_pw_check" required>
-                                    <label class="valid"></label>
+                                    <label class="buyerCheckPw valid"></label>
                                 </li>
                                 <li>
                                     <label for="buyer_email">이메일</label>
@@ -100,7 +100,7 @@
                                     <label class="valid"></label>
                                     <input type="button" onclick="buyer_execDaumPostcode()" value="우편번호 찾기"><br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="text" id="buyer_address" placeholder="주소" required style="width: 85%;"><br><label class="valid"></label>
+                                    <input type="text" id="buyer_address" placeholder="주소" required style="width: 85%;"><br><label class="valid"></label><br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;
                                     <input type="text" id="buyer_detailAddress" placeholder="상세주소" required>
                                     <label class="valid"></label>
@@ -112,7 +112,7 @@
                         </form>
                     </div>
                     <div id="seller" class="container">
-                        <form action="" method="post">
+                        <form action="./2.registerSuccess.html" method="" onsubmit="return sellerCheckAdditional();">
                             <ul>
                                 <li style="display: flex; justify-content: center;">
                                     <label style="font-size: xx-large;">사업자 회원가입</label>
@@ -120,13 +120,13 @@
                                 <li>
                                     <label for="seller_no">사업자 등록 번호</label>
                                     <input type="text" id="seller_no" required>
-                                    <input type="button" value="인증" class="checkSellerNo"><br>
-                                    <label></label>
+                                    <input type="button" value="인증" class="checkSellerNo">
+                                    <label class="sellerNo valid"></label>
                                 </li>
                                 <li>
                                     <label for="seller_name">상호명</label>
-                                    <input type="text" id="seller_name" required><br>
-                                    <label></label>
+                                    <input type="text" id="seller_name" required>
+                                    <label class="valid"></label>
                                 </li>
                                 <li>
                                     <label for="seller_accountNo">계좌번호</label>
@@ -139,49 +139,51 @@
                                         <option value="hana">하나</option>
                                         <option value="nonghyup">농협</option>
                                         <option value="industrial">기업</option>
-                                    </select>
-                                    <input type="tel" id="seller_accountNo" required><br>
-                                    <label></label>
+                                    </select><br>
+                                    <label class="selectBank valid"></label>
+                                    <input type="tel" id="seller_accountNo" required>
+                                    <label class="valid"></label>
                                 </li>
                                 <li>
                                     <label for="seller_id">아이디</label>
                                     <input type="text" id="seller_id" required>
-                                    <input type="button" value="중복 체크" class="checkSameId"><br>
-                                    <label></label>
+                                    <input type="button" value="중복 체크" class="sellerCheckSameId">
+                                    <label class="sellerCheckId valid"></label>
                                 </li>
                                 <li>
                                     <label for="seller_pw">비밀번호</label>
                                     <input type="password" id="seller_pw" required>
-                                    <label></label>
+                                    <label class="valid"></label>
                                 </li>
                                 <li>
                                     <label for="seller_pw_check">비밀번호 확인</label>
                                     <input type="password" id="seller_pw_check" required>
-                                    <label></label>
+                                    <label class="sellerCheckPw valid"></label>
                                 </li>
                                 <li>
                                     <label for="seller_email">이메일</label>
                                     <input type="email" id="seller_email" required>
-                                    <label></label>
+                                    <label class="valid"></label>
                                 </li>
                                 <li>
                                     <label for="seller_phone">대표 번호</label>
                                     <input type="tel" id="seller_phone" placeholder="예)01012341234" required>
-                                    <label></label>
+                                    <label class="valid"></label>
                                 </li>
                                 <li>
                                     <label for="seller_postcode">주소</label>
                                     <input type="text" id="seller_postcode" placeholder="우편번호" required style="width: 100px;">
+                                    <label class="valid"></label>
                                     <input type="button" onclick="seller_execDaumPostcode()" value="우편번호 찾기"><br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="text" id="seller_address" placeholder="주소" required style="width: 85%;"><br>
+                                    <input type="text" id="seller_address" placeholder="주소" required style="width: 85%;"><br><label class="valid"></label><br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;
                                     <input type="text" id="seller_detailAddress" placeholder="상세주소" required>
-                                    <label></label>
+                                    <label class="valid"></label>
                                 </li>
                             </ul>
                             <br>
-                            <input type="submit" value="사업자 회원가입">
+                            <input type="submit" onclick="sellerValid();" value="사업자 회원가입">
                         </form>
                     </div>
                 </div>
@@ -215,14 +217,55 @@
         </footer>
         <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
         <script>
+            document.querySelector(".buyerCheckSameId").addEventListener("click", () => {
+                const idVal = document.querySelector("#buyer_id");
+                if(idVal.value == "") {
+                    document.querySelector(".buyerCheckId").innerText = "아이디를 입력하세요";
+                } else {
+                    document.querySelector(".buyerCheckId").innerText = "사용 가능";
+                }
+            })
+            document.querySelector(".sellerCheckSameId").addEventListener("click", () => {
+                const idVal = document.querySelector("#seller_id");
+                if(idVal.value == "") {
+                    document.querySelector(".sellerCheckId").innerText = "아이디를 입력하세요";
+                } else {
+                    document.querySelector(".sellerCheckId").innerText = "사용 가능";
+                }
+            })
+            document.querySelector(".checkSellerNo").addEventListener("click", () => {
+                const idVal = document.querySelector("#seller_no");
+                if(idVal.value == "") {
+                    document.querySelector(".sellerNo").innerText = "사업자 번호를 입력하세요";
+                } else {
+                    document.querySelector(".sellerNo").innerText = "등록가능한 사업자입니다";
+                }
+            })
+
+
+            function buyerCheckAdditional() {
+                if(document.querySelector(".buyerCheckPw").innerText == "일치" &&
+                document.querySelector(".buyerCheckId").innerText == "사용 가능") {
+                    return true;
+                } else return false;
+            }
+            function sellerCheckAdditional() {
+                if(document.querySelector(".sellerNo").innerText == "등록가능한 사업자입니다" &&
+                document.querySelector(".sellerCheckId").innerText == "사용 가능" &&
+                document.querySelector(".sellerCheckPw").innerText == "일치" &&
+                document.querySelector("select").value != "") {
+                    return true;
+                } else return false;
+            }
+
             function buyerValid() {
                 const inputTag = document.querySelectorAll("#buyer input[required]");
                 for(let i = 0; i < inputTag.length; i++) {
-                    if(inputTag[i].value == "") { console.log(inputTag[i]);
+                    if(inputTag[i].value == "") {
                         switch(i) {
                             case 0: inputTag[i].nextSibling.nextSibling.innerText = "이름을 입력하세요.";
                                 break;
-                            case 1: inputTag[i].nextSibling.nextSibling.innerText = "아이디를 입력하세요.";
+                            case 1: document.querySelector(".buyerCheckId").innerText = "아이디를 입력하세요.";
                                 break;
                             case 2: inputTag[i].nextSibling.nextSibling.innerText = "비밀번호를 입력하세요.";
                                 break;
@@ -238,15 +281,78 @@
                                 break;
                             case 8: inputTag[i].nextSibling.nextSibling.innerText = "상세주소를 입력하세요.";
                                 break;
-                                
                         }
-                        
                     } else {
                         inputTag[i].nextSibling.nextSibling.innerText = "";
                     }
                 }
+
+                if(inputTag[1].value != "" && document.querySelector(".buyerCheckId").innerText != "사용 가능") {
+                    document.querySelector(".buyerCheckId").innerText = "중복체크하세요";
+                }
+
+                if(inputTag[2].value != "") {
+                    if(inputTag[3].value != inputTag[2].value) {
+                        document.querySelector(".buyerCheckPw").innerText = "불일치";
+                    } else document.querySelector(".buyerCheckPw").innerText = "일치";
+                }
+                
             }
 
+            function sellerValid() {
+                const inputTag = document.querySelectorAll("#seller input[required]");console.log(inputTag);
+                for(let i = 0; i < inputTag.length; i++) {
+                    if(inputTag[i].value == "") {
+                        switch(i) {
+                            case 0: document.querySelector(".sellerNo").innerText = "사업자번호를 입력하세요.";
+                                break;
+                            case 1: inputTag[i].nextSibling.nextSibling.innerText = "상호명을 입력하세요.";
+                                break;
+                            case 2: inputTag[i].nextSibling.nextSibling.innerText = "계좌번호를 입력하세요.";
+                                break;
+                            case 3: document.querySelector(".sellerCheckId").innerText = "아이디를 입력하세요.";
+                                break;
+                            case 4: inputTag[i].nextSibling.nextSibling.innerText = "비밀번호를 입력하세요.";
+                                break;
+                            case 5: inputTag[i].nextSibling.nextSibling.innerText = "비밀번호를 입력하세요.";
+                                break;
+                            case 6: inputTag[i].nextSibling.nextSibling.innerText = "이메일을 입력하세요.";
+                                break;
+                            case 7: inputTag[i].nextSibling.nextSibling.innerText = "대표 번호를 입력하세요.";
+                                break;
+                            case 8: inputTag[i].nextSibling.nextSibling.innerText = "우편번호를 입력하세요.";
+                                break;
+                            case 9: inputTag[i].nextSibling.nextSibling.innerText = "주소를 입력하세요.";
+                                break;
+                            case 10: inputTag[i].nextSibling.nextSibling.innerText = "상세주소를 입력하세요.";
+                                break;
+                        }
+                    } else {
+                        if(i==0 && document.querySelector(".sellerNo").innerText != "등록가능한 사업자입니다") {
+                            document.querySelector(".sellerNo").innerText = "";
+                        } else inputTag[i].nextSibling.nextSibling.innerText = "";
+                    }
+                }
+
+                if(document.querySelector("select").value == "") {
+                    document.querySelector(".selectBank").innerText = "은행선택하세요";
+                } else document.querySelector(".selectBank").innerText = "";
+
+                if(inputTag[3].value != "" && document.querySelector(".sellerCheckId").innerText != "사용 가능") {
+                    document.querySelector(".sellerCheckId").innerText = "중복체크하세요";
+                }
+
+                if(inputTag[0].value != "" && document.querySelector(".sellerNo").innerText != "등록가능한 사업자입니다") {
+                    document.querySelector(".sellerNo").innerText = "인증하세요";
+                }
+
+                if(inputTag[4].value != "") {
+                    if(inputTag[5].value != inputTag[4].value) {
+                        document.querySelector(".sellerCheckPw").innerText = "불일치";
+                    } else document.querySelector(".sellerCheckPw").innerText = "일치";
+                }
+                
+            }
 
             function buyer_execDaumPostcode() {
                 new daum.Postcode({

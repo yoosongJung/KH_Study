@@ -18,7 +18,7 @@
         <header class="sticky-top navbar navbar-expand-lg" style="padding-top: 0px;">
             
             <div class="logo">
-                <a class="navbar-brand" href="#"><img src="./resources/images/logo.PNG" alt=""></a>
+                <a class="navbar-brand" href="./1.main.html"><img src="./resources/images/logo.PNG" alt=""></a>
             </div>
             <div id="nav" class="container-fluid">
                 <div id="nav2">
@@ -30,7 +30,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
-                        <li class="nav-item" style="margin-top: 13px;"><a href="">회원가입</a></li>
+                        <li class="nav-item" style="margin-top: 13px;"><a href="#">회원가입</a></li>
                         <li class="nav-item" style="margin-top: 13px;"><a href="">로그인</a></li>
                         <li class="nav-item" style="margin-top: 13px;"><a href="">마이페이지</a></li>
                         <li class="nav-item" style="margin-top: 13px;"><a href="">프리미엄</a></li>
@@ -60,49 +60,129 @@
                     <div id="buyer" class="container">
                         <form action="" method="post">
                             <ul>
-                                <li>
-                                    <label for="user_name">이름</label>
-                                    <input type="text" id="user_name" required><br>
+                                <li style="display: flex; justify-content: center;">
+                                    <label style="font-size: xx-large;">일반 회원가입</label>
                                 </li>
                                 <li>
-                                    <label for="user_id">아이디</label>
-                                    <input type="text" id="user_id" required>
-                                    <input type="button" value="중복 체크" class="checkSameId"><br>
+                                    <label for="buyer_name">이름</label>
+                                    <input type="text" id="buyer_name" required>
+                                    <label class="valid"></label>
                                 </li>
                                 <li>
-                                    <label for="user_pw">비밀번호</label>
-                                    <input type="password" id="user_pw" required>
+                                    <label for="buyer_id">아이디</label>
+                                    <input type="text" id="buyer_id" required>
+                                    <input type="button" value="중복 체크" class="checkSameId">
+                                    <label class="valid"></label>
                                 </li>
                                 <li>
-                                    <label for="user_pw_check">비밀번호 확인</label>
-                                    <input type="password" id="user_pw_check" required>
+                                    <label for="buyer_pw">비밀번호</label>
+                                    <input type="password" id="buyer_pw" required>
+                                    <label class="valid"></label>
                                 </li>
                                 <li>
-                                    <label for="user_email">이메일</label>
-                                    <input type="email" id="user_email" required>
+                                    <label for="buyer_pw_check">비밀번호 확인</label>
+                                    <input type="password" id="buyer_pw_check" required>
+                                    <label class="valid"></label>
                                 </li>
                                 <li>
-                                    <label for="user_phone">휴대폰 번호</label>
-                                    <input type="tel" id="user_phone" placeholder="예)01012341234" required>
+                                    <label for="buyer_email">이메일</label>
+                                    <input type="email" id="buyer_email" required>
+                                    <label class="valid"></label>
+                                </li>
+                                <li>
+                                    <label for="buyer_phone">휴대폰 번호</label>
+                                    <input type="tel" id="buyer_phone" placeholder="예)01012341234" required>
+                                    <label class="valid"></label>
                                 </li>
                                 <li>
                                     <label for="buyer_postcode">주소</label>
-                                    <input type="text" id="buyer_postcode" placeholder="우편번호" style="width: 100px;">
+                                    <input type="text" id="buyer_postcode" placeholder="우편번호" required style="width: 100px;">
+                                    <label class="valid"></label>
                                     <input type="button" onclick="buyer_execDaumPostcode()" value="우편번호 찾기"><br>
                                     &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="text" id="buyer_address" placeholder="주소" style="width: 85%;"><br>
+                                    <input type="text" id="buyer_address" placeholder="주소" required style="width: 85%;"><br><label class="valid"></label>
                                     &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="text" id="buyer_detailAddress" placeholder="상세주소">
+                                    <input type="text" id="buyer_detailAddress" placeholder="상세주소" required>
+                                    <label class="valid"></label>
                                 </li>
                             </ul>
                                                         
-                            <br><br><br>
-                            <input type="submit" value="일반 회원가입">
+                            <br><br><br><br><br><br><br><br>
+                            <input type="submit" onclick="buyerValid();" value="일반 회원가입">
                         </form>
                     </div>
                     <div id="seller" class="container">
-                        <label for="user_name">이름</label>
-                                    <input type="text" id="user_name" required><br>
+                        <form action="" method="post">
+                            <ul>
+                                <li style="display: flex; justify-content: center;">
+                                    <label style="font-size: xx-large;">사업자 회원가입</label>
+                                </li>
+                                <li>
+                                    <label for="seller_no">사업자 등록 번호</label>
+                                    <input type="text" id="seller_no" required>
+                                    <input type="button" value="인증" class="checkSellerNo"><br>
+                                    <label></label>
+                                </li>
+                                <li>
+                                    <label for="seller_name">상호명</label>
+                                    <input type="text" id="seller_name" required><br>
+                                    <label></label>
+                                </li>
+                                <li>
+                                    <label for="seller_accountNo">계좌번호</label>
+                                    <select name="bank" id="select_bank" >
+                                        <option hidden="" disabled="disabled" selected="selected" value="">은행 선택</option>
+                                        <option value="kookmin">국민</option>
+                                        <option value="shinhan">신한</option>
+                                        <option value="kakao">카카오뱅크</option>
+                                        <option value="woori">우리</option>
+                                        <option value="hana">하나</option>
+                                        <option value="nonghyup">농협</option>
+                                        <option value="industrial">기업</option>
+                                    </select>
+                                    <input type="tel" id="seller_accountNo" required><br>
+                                    <label></label>
+                                </li>
+                                <li>
+                                    <label for="seller_id">아이디</label>
+                                    <input type="text" id="seller_id" required>
+                                    <input type="button" value="중복 체크" class="checkSameId"><br>
+                                    <label></label>
+                                </li>
+                                <li>
+                                    <label for="seller_pw">비밀번호</label>
+                                    <input type="password" id="seller_pw" required>
+                                    <label></label>
+                                </li>
+                                <li>
+                                    <label for="seller_pw_check">비밀번호 확인</label>
+                                    <input type="password" id="seller_pw_check" required>
+                                    <label></label>
+                                </li>
+                                <li>
+                                    <label for="seller_email">이메일</label>
+                                    <input type="email" id="seller_email" required>
+                                    <label></label>
+                                </li>
+                                <li>
+                                    <label for="seller_phone">대표 번호</label>
+                                    <input type="tel" id="seller_phone" placeholder="예)01012341234" required>
+                                    <label></label>
+                                </li>
+                                <li>
+                                    <label for="seller_postcode">주소</label>
+                                    <input type="text" id="seller_postcode" placeholder="우편번호" required style="width: 100px;">
+                                    <input type="button" onclick="seller_execDaumPostcode()" value="우편번호 찾기"><br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="text" id="seller_address" placeholder="주소" required style="width: 85%;"><br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="text" id="seller_detailAddress" placeholder="상세주소" required>
+                                    <label></label>
+                                </li>
+                            </ul>
+                            <br>
+                            <input type="submit" value="사업자 회원가입">
+                        </form>
                     </div>
                 </div>
             </div>
@@ -135,7 +215,40 @@
         </footer>
         <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
         <script>
-        function buyer_execDaumPostcode() {
+            function buyerValid() {
+                const inputTag = document.querySelectorAll("#buyer input[required]");
+                for(let i = 0; i < inputTag.length; i++) {
+                    if(inputTag[i].value == "") { console.log(inputTag[i]);
+                        switch(i) {
+                            case 0: inputTag[i].nextSibling.nextSibling.innerText = "이름을 입력하세요.";
+                                break;
+                            case 1: inputTag[i].nextSibling.nextSibling.innerText = "아이디를 입력하세요.";
+                                break;
+                            case 2: inputTag[i].nextSibling.nextSibling.innerText = "비밀번호를 입력하세요.";
+                                break;
+                            case 3: inputTag[i].nextSibling.nextSibling.innerText = "비밀번호를 입력하세요.";
+                                break;
+                            case 4: inputTag[i].nextSibling.nextSibling.innerText = "이메일을 입력하세요.";
+                                break;
+                            case 5: inputTag[i].nextSibling.nextSibling.innerText = "휴대폰번호를 입력하세요.";
+                                break;
+                            case 6: inputTag[i].nextSibling.nextSibling.innerText = "우편번호를 입력하세요.";
+                                break;
+                            case 7: inputTag[i].nextSibling.nextSibling.innerText = "주소를 입력하세요.";
+                                break;
+                            case 8: inputTag[i].nextSibling.nextSibling.innerText = "상세주소를 입력하세요.";
+                                break;
+                                
+                        }
+                        
+                    } else {
+                        inputTag[i].nextSibling.nextSibling.innerText = "";
+                    }
+                }
+            }
+
+
+            function buyer_execDaumPostcode() {
                 new daum.Postcode({
                     oncomplete: function(data) {
                         // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
@@ -156,6 +269,24 @@
                         document.getElementById("buyer_address").value = addr;
                         // 커서를 상세주소 필드로 이동한다.
                         document.getElementById("buyer_detailAddress").focus();
+                    }
+                }).open();
+            }
+            function seller_execDaumPostcode() {
+                new daum.Postcode({
+                    oncomplete: function(data) {
+                        
+                        var addr = ''; // 주소 변수
+
+                        if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                            addr = data.roadAddress;
+                        } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                            addr = data.jibunAddress;
+                        }
+                        
+                        document.getElementById('seller_postcode').value = data.zonecode;
+                        document.getElementById("seller_address").value = addr;
+                        document.getElementById("seller_detailAddress").focus();
                     }
                 }).open();
             }

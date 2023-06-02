@@ -52,12 +52,13 @@
             function startClock() {
                 autoClock = window.setInterval(function() {
                     document.querySelector("#clockArea").innerText 
-                    = new Date().toTimeString().split(" ")[0];
+                    = new Date().toLocaleTimeString().split(" ")[1];
                 }, 1000);
             }
 
             function stopClock() {
                 window.clearInterval(autoClock);
+                document.querySelector("#clockArea").innerText = "";
             }
 
             var checkInterval = null;

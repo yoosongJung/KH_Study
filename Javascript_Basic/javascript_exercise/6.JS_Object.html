@@ -99,7 +99,7 @@
                 console.log("kor" in student);
             }
 
-            document.querySelector("#btn5").onclick = function() {
+            document.querySelector("#btn5").onclick = () => {
                 var person = {
                     "name" : "일용자",
                     "hobby" : "낚시,수영,코딩",
@@ -145,7 +145,7 @@
                 // div4Tag.innerHTML += "Game의 service : " + game.service + "<br>";
             })
 
-            document.querySelector("#btn3").onclick = function() {
+            document.querySelector("#btn3").onclick = () => {
                 var divTag3 = document.querySelector("#area3");
                 var dog = new Object();
                 dog.name = "백지";

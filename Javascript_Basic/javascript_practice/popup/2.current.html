@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>현재 시간</title>
+        <style>
+            .container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+            }
+            p{
+                font-size: 1.2em;
+            }
+            #current {
+                color: blue;
+                font-size: x-large;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <p>현재 시각 <span id="current"></span></p>
+        </div>
+        <script>
+            setInterval(function() {
+                document.querySelector("#current").innerText = new Date().toLocaleTimeString();
+            }, 1000)
+            
+        </script>
+    </body>
+</html>

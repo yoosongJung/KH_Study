@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript ES6</title>
+    </head>
+    <body>
+        <h1>Javascript ES6</h1>
+        <p>
+            변수의 호이스팅, 선언되지 않은 변수를 사용하더라도 자동으로 선언하여 사용하는 현상
+        </p>
+        <script>
+
+            const sayHelloFriend = (name) => {
+                console.log(name + " 안녕?");
+            }
+            sayHelloFriend("일용자");
+            let sayHi = () => {
+                return "안녕하세요?";
+            }
+            console.log(sayHi());
+
+            const printMember = () => {
+                console.log("멤버를 출력함.");
+            }
+            printMember();
+
+            const insertMember = () => {
+                console.log("const로 선언한 변수에 초기화");
+            }
+
+            function exConst() {
+                //console.log(PI); //Uncaught ReferenceError: Cannot access 'PI' before initialization
+                const PI = 3.14;
+                console.log(PI);
+                PI = 2.14; //Uncaught TypeError: Assignment to constant variable.
+                console.log(PI);
+            }
+
+            function letForLoop() {
+                for(let i = 1; i <= 5; i++) {
+                        console.log(i);
+                    }
+                    console.log(i); //Uncaught ReferenceError: i is not defined
+            }
+
+            function varForLoop() {
+                for(var i = 1; i <= 5; i++) {
+                    console.log(i);
+                }
+                console.log(i);
+            }
+
+            function exLet() {
+                console.log(number); //Uncaught ReferenceError: Cannot access 'number' before initialization
+                let number; // undefined
+                console.log(number);
+                number = 2;
+                console.log(number);
+            }
+
+            function varHoisting() {
+                console.log(number);
+                var number; // undefined
+                number = 1; // 1
+            }
+        </script>
+    </body>
+</html>

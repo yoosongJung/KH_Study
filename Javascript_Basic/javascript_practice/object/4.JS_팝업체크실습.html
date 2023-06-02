@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>팝업 체크</title>
+    </head>
+    <body onload="openPopup();">
+        <script>
+            // window.onload = function() {
+            //     openPopup();
+            // }
+            function openPopup() {
+                var noticeWin = window.open("../popup/1.notice.html", "", "width=400, height=300");
+                if(!noticeWin) {
+                    alert("팝업이 차단되었습니다. 팝업 차단을 해제해 주세요.");
+                }
+                noticeWin.moveBy(100,200);
+            }
+
+        </script>
+    </body>
+</html>

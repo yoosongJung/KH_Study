@@ -1,3 +1,6 @@
+main {
+  height: 80vh;
+}
 #main_left {
   margin-top: 120px;
 }
@@ -43,4 +46,19 @@ p {
   background-color: rgb(236, 143, 218);
   width: 75%;
   margin: 30px auto;
+}
+.agree {
+  text-align: center;
+}
+.finish {
+  position: relative;
+  left: 70%;
+  top: 10%;
+  padding: 10px;
+  color: white;
+  background-color: rgb(232, 81, 81);
+  font-weight: bold;
+}
+.finalMention {
+  color: red;
 }

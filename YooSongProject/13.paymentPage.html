@@ -4,15 +4,14 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./resources/css/1.main.css">
+        <link rel="stylesheet" href="./resources/css/reset.css">
         <script src="https://kit.fontawesome.com/dbb376a4c5.js" crossorigin="anonymous"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-        <link rel="stylesheet" href="./resources/css/reset.css">
-        <link rel="stylesheet" href="./resources/css/1.main.css">
-        <link rel="stylesheet" href="./resources/css/4_3.secession.css">
-        <title>Secession</title>
+        <title>PaymentPage</title>
     </head>
     <body>
         <header class="sticky-top navbar navbar-expand-lg" style="padding-top: 0px;">
@@ -51,43 +50,10 @@
         </header>
         <main>
             <div id="main_left">
-                <table>
-                    <tr>
-                        <th>마이페이지</th>
-                    </tr>
-                    <tr>
-                        <td><a href="./4.myPage.html">회원정보</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="./4_1.orderHistory.html">주문내역</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="./4_2.actHistory.html">내 활동내역</a></td>
-                    </tr>
-                    <tr>
-                        <td style="background-color: white;"><a href="./4_3.secession.html">회원탈퇴</a></td>
-                    </tr>
-                </table>
+
             </div>
             <div id="main_middle">
-                <h2><b>회원 탈퇴</b></h2>
-                <hr>
-                <div class="secessionNotice">
-                    <h5>-----회원 탈퇴 시 주의 할 점-----</h5>
-                    <p>
-                        1. 회원 탈퇴 시 회원전용 웹 서비스 이용이 제한됩니다. <br>
-                        2. 재가입을 하더라도 기존에 있던 정보들은 사라집니다.(장바구니, 주문내역, 개인정보 등) <br>
-                        3. 회원 탈퇴 후 문의 및 댓글은 삭제되지 않으며, 원하시는 경우 탈퇴 전 삭제 부탁드립니다. <br>
-                        4. 이미 결제가 완료 된 상품 및 프리미엄권은 탈퇴로 인해 취소되지 않습니다.
-                    </p>
-                </div>
-                <div class="agree">
-                    <label>비밀 번호</label>
-                    <input type="password">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox"> 상기 내용을 숙지하고 동의합니다. <br>
-                    <label class="finalMention"></label>
-                </div>
-                <button class="finish" onclick="bye();">회원 탈퇴</button>
+
             </div>
             <div id="main_right">
                 <div>
@@ -124,29 +90,6 @@
                 </div>
             </div>
         </footer>
-        <script>
-            function bye() {
-                const password = document.querySelector("input[type=password]");
-                const check = document.querySelector("input[type=checkbox]");console.log(check.checked);
-                if(password.value != "" && check.checked == true) {
-                    document.querySelector(".finalMention").innerText = "";
-                    const answer = confirm("회원 탈퇴를 진행하시겠습니까?");
-                    if(answer) {
-                        alert("회원 탈퇴 완료");
-                        location.href = "./1.main.html";
-                    } else {
-                        
-                    }
-
-                } else {
-                    document.querySelector(".finalMention").innerText = "비밀번호 입력 후 동의 체크해주세요";
-                }
-            }
-
-            document.querySelector("#toTheTop").addEventListener("click", function() {
-                document.documentElement.scrollTop = 0;
-            })
-        </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     </body>
 </html>

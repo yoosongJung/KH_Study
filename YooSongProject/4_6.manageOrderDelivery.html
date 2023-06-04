@@ -11,8 +11,8 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
         <link rel="stylesheet" href="./resources/css/reset.css">
         <link rel="stylesheet" href="./resources/css/1.main.css">
-        <link rel="stylesheet" href="./resources/css/4_3.secession.css">
-        <title>Secession</title>
+        <link rel="stylesheet" href="./resources/css/4_6.manageOrderDelivery.css">
+        <title>ManageOrderDelivery</title>
     </head>
     <body>
         <header class="sticky-top navbar navbar-expand-lg" style="padding-top: 0px;">
@@ -56,38 +56,77 @@
                         <th>마이페이지</th>
                     </tr>
                     <tr>
-                        <td><a href="./4.myPage.html">회원정보</a></td>
+                        <td><a href="#">회원정보</a></td>
                     </tr>
                     <tr>
-                        <td><a href="./4_1.orderHistory.html">주문내역</a></td>
+                        <td><a href="./4_4.manageProduct.html">상품관리</a></td>
                     </tr>
                     <tr>
-                        <td><a href="./4_2.actHistory.html">내 활동내역</a></td>
+                        <td><a href="./4_5.addProduct.html">상품등록</a></td>
                     </tr>
                     <tr>
-                        <td style="background-color: white;"><a href="./4_3.secession.html">회원탈퇴</a></td>
+                        <td style="background-color: white;"><a href="./4_6.manageOrderDelivery.html">주문/발송 관리</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">회원탈퇴</a></td>
                     </tr>
                 </table>
             </div>
             <div id="main_middle">
-                <h2><b>회원 탈퇴</b></h2>
+                <h2><b>주문/발송 관리</b></h2>
                 <hr>
-                <div class="secessionNotice">
-                    <h5>-----회원 탈퇴 시 주의 할 점-----</h5>
-                    <p>
-                        1. 회원 탈퇴 시 회원전용 웹 서비스 이용이 제한됩니다. <br>
-                        2. 재가입을 하더라도 기존에 있던 정보들은 사라집니다.(장바구니, 주문내역, 개인정보 등) <br>
-                        3. 회원 탈퇴 후 문의 및 댓글은 삭제되지 않으며, 원하시는 경우 탈퇴 전 삭제 부탁드립니다. <br>
-                        4. 이미 결제가 완료 된 상품 및 프리미엄권은 탈퇴로 인해 취소되지 않습니다.
-                    </p>
-                </div>
-                <div class="agree">
-                    <label>비밀 번호</label>
-                    <input type="password">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox"> 상기 내용을 숙지하고 동의합니다. <br>
-                    <label class="finalMention"></label>
-                </div>
-                <button class="finish" onclick="bye();">회원 탈퇴</button>
+                <table>
+                    <tr>
+                        <th></th>
+                        <th>주문번호</th>
+                        <th style="width: 30%;">상품명</th>
+                        <th>수량</th>
+                        <th>택배사</th>
+                        <th>송장번호</th>
+                        <th>주문인</th>
+                        <th>전화번호</th>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>20234125</td>
+                        <td>조르지오 아르마니 마이웨이 플로럴 오 드 퍼퓸 리필 스프레이 50ml</td>
+                        <td>2</td>
+                        <td>
+                            <select class="deliveryCompany">
+                                <option value="CJGLS">CJ대한통운</option>
+                                <option value="LOTTEGLOBAL">롯데글로벌</option>
+                                <option value="HANJIN">한진택배</option>
+                                <option value="KGB">로젠택배</option>
+                                <option value="DAESIN">대신택배</option>
+                                <option value="EMS">우체국 EMS</option>
+                            </select>
+                        </td>
+                        <td>2424534534</td>
+                        <td><button onclick="addressDetail(this.value);" value="김철수"><u>김철수</u></button></td>
+                        <td>000-0000-0000</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>20234432</td>
+                        <td>눅스 맨 멀티-유즈 샤워 젤 200ml</td>
+                        <td>1</td>
+                        <td>
+                            <select class="deliveryCompany">
+                                <option value="CJGLS">CJ대한통운</option>
+                                <option value="LOTTEGLOBAL">롯데글로벌</option>
+                                <option value="HANJIN">한진택배</option>
+                                <option value="KGB">로젠택배</option>
+                                <option value="DAESIN">대신택배</option>
+                                <option value="EMS">우체국 EMS</option>
+                            </select>
+                        </td>
+                        <td>2364897480</td>
+                        <td><button onclick="addressDetail(this.value);" value="신짱구"><u>신짱구</u></button></td>
+                        <td>010-1111-1111</td>
+                    </tr>
+                </table>
+                <button class="order success" onclick="orderConfirm(this.value);" value="승인/발송처리">주문 승인/발송</button>
+                <button class="order cancel" onclick="orderConfirm(this.value);" value="주문 취소">주문 취소</button>
             </div>
             <div id="main_right">
                 <div>
@@ -125,23 +164,22 @@
             </div>
         </footer>
         <script>
-            function bye() {
-                const password = document.querySelector("input[type=password]");
-                const check = document.querySelector("input[type=checkbox]");console.log(check.checked);
-                if(password.value != "" && check.checked == true) {
-                    document.querySelector(".finalMention").innerText = "";
-                    const answer = confirm("회원 탈퇴를 진행하시겠습니까?");
-                    if(answer) {
-                        alert("회원 탈퇴 완료");
-                        location.href = "./1.main.html";
-                    } else {
-                        
-                    }
-
-                } else {
-                    document.querySelector(".finalMention").innerText = "비밀번호 입력 후 동의 체크해주세요";
-                }
+            function addressDetail(name) {
+                alert("주문인 : " + name + "\n우편번호 : 01234\n주소 : 서울시 종로구\n상세주소 : 청계빌딩2층");
             }
+
+            function orderConfirm(status) {
+                const check = document.querySelectorAll("input[type=checkbox]");
+                let count = 0;
+                for( let i = 0; i < check.length; i++) {
+                    if(check[i].checked) {
+                        count++;
+                    }
+                }
+                confirm("선택한 " + count + "건을 " + status + "하시겠습니까?");
+            }
+
+
 
             document.querySelector("#toTheTop").addEventListener("click", function() {
                 document.documentElement.scrollTop = 0;

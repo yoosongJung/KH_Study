@@ -82,12 +82,36 @@
                 <label class="totalPrice"><label>결제하실 총 금액</label><label>176,700원</label></label>
                 <hr>
                 <div class="buyerInfo">
-                    <h4>구매자 정보</h4>
-                    <label>이름</label>
-                    <label>연락처</label>
-                    <label>이메일</label>
-                    <label>주소</label>
+                        <h4 style="background-color: white;">구매자 정보</h4>
+                        <label style="margin-left: 20px;">이름</label><label class="inputBorder oName" style="margin-left: 30px">신짱구</label><br>
+                        <label style="margin-left: 20px;">연락처</label><label class="inputBorder oPhone" style="margin-left: 14px">010 2094 2543</label><br>
+                        <label style="margin-left: 20px;">이메일</label><label class="inputBorder oEmail" style="margin-left: 14px">jystwo@gmail.com</label><br>
+                        <label style="margin-left: 20px;">주소</label><label class="inputBorder oPostCode" style="margin-left: 30px">01234</label><br>
+                        <label class="inputBorder oAddress" style="margin-left: 82px; width: 350px;">서울시 종로구</label><label class="inputBorder oAddressDetail">청계빌딩2층</label>
                 </div>
+                <hr>
+                <div class="deliveryInfo">
+                    <h4 style="background-color: rgb(212, 227, 234);">배송지 정보</h4>
+                    <input type="radio" onchange="delInfo();" name="address" value="sameAddress" id="same">구매자 정보와 동일
+                    <input type="radio" onchange="delInfo();" name="address" value="newAddress" id="new" checked>새로운 배송지 <br>
+                    <label style="margin-left: 20px; width: 13%;">이름</label><input class="inputBorder delName" type="text"><br>
+                    <label style="margin-left: 20px; width: 13%;">연락처</label><input class="inputBorder delPhone" type="text"><br>
+                    <label style="margin-left: 20px; width: 13%;">이메일</label><input class="inputBorder delEmail" type="text"><br>
+                    <label style="margin-left: 20px; width: 13%;">주소</label><input class="inputBorder delPostCode" type="text" id="user_postcode"><button id="postCode" onclick="execDaumPostcode()">우편번호</button><br>
+                    <input style="margin-left: 143px; width: 350px;" class="inputBorder delAddress" type="text" id="user_address"><input class="inputBorder delAddressDetail" type="text" id="user_detailAddress"><br>
+                    <label style="margin-left: 20px; width: 13%;">개인통관부호</label><input class="inputBorder" style="width: 250px;" type="text" placeholder="해외배송 상품 구매시 필수 입력">
+                </div>
+                <hr>
+                <div class="payMethod">
+                    <h4 style="background-color: white;">결제 방법</h4>
+                    <input type="radio" onchange="payInfo();" name="payMethod">계좌 이체
+                    <input type="radio" onchange="payInfo();" name="payMethod" checked>신용/체크카드
+                    <input type="radio" onchange="payInfo();" name="payMethod">카카오페이
+                    <input type="radio" onchange="payInfo();" name="payMethod">네이버페이
+                    <br><label class="forAccount" style="margin-left: 30px; background-color: white; opacity: 0;">국민 302-511-252345-02 코스마켓</label>
+                </div>
+                <button class="order success" onclick="javascript: location.href='./1.main.html'"><i class="fa-solid fa-check"></i>&nbsp;&nbsp;결제하기</button>
+                <button class="order cancel" onclick="javascript: location.href='./1.main.html'"><i class="fa-solid fa-arrow-rotate-left"></i>&nbsp;취소</button>
             </div>
             <div id="main_right">
                 <div>
@@ -124,9 +148,53 @@
                 </div>
             </div>
         </footer>
+        <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
         <script>
+            function execDaumPostcode() {
+                new daum.Postcode({
+                    oncomplete: function(data) {
+                        
+                        var addr = ''; // 주소 변수
 
+                        if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                            addr = data.roadAddress;
+                        } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                            addr = data.jibunAddress;
+                        }
+                        
+                        document.getElementById('user_postcode').value = data.zonecode;
+                        document.getElementById("user_address").value = addr;
+                        document.getElementById("user_detailAddress").focus();
+                    }
+                }).open();
+            }
+            
+            function payInfo() {
+                const pay = document.querySelectorAll("[name=payMethod]");
+                if(pay[0].checked) {
+                    document.querySelector(".forAccount").style.opacity = "1";
+                } else document.querySelector(".forAccount").style.opacity = "0";
+            }
 
+            function delInfo() {
+                const del = document.querySelectorAll("[name=address]");
+                if(del[0].checked) {
+                    document.querySelector(".delName").value = document.querySelector(".oName").innerText;
+                    document.querySelector(".delPhone").value = document.querySelector(".oPhone").innerText;
+                    document.querySelector(".delEmail").value = document.querySelector(".oEmail").innerText;
+                    document.querySelector(".delPostCode").value = document.querySelector(".oPostCode").innerText;
+                    document.querySelector(".delAddress").value = document.querySelector(".oAddress").innerText;
+                    document.querySelector(".delAddressDetail").value = document.querySelector(".oAddressDetail").innerText;
+                } else if(del[1].checked) {
+                    document.querySelector(".delName").value = "";
+                    document.querySelector(".delPhone").value = "";
+                    document.querySelector(".delEmail").value = "";
+                    document.querySelector(".delPostCode").value = "";
+                    document.querySelector(".delAddress").value = "";
+                    document.querySelector(".delAddressDetail").value = "";
+                }
+            }
+            
 
             document.querySelector("#toTheTop").addEventListener("click", function() {
                 document.documentElement.scrollTop = 0;

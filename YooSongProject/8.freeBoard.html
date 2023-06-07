@@ -147,7 +147,6 @@
                 const inputVal = document.querySelector(".search input").value;
                 const tr = document.querySelectorAll("#main_middle tbody tr");
                 for(var i = 0; i < tr.length; i++) {
-                    console.log(tr[i].childNodes);
                     if(!tr[i].childNodes[3].innerText.includes(inputVal) && 
                     !tr[i].childNodes[5].innerText.includes(inputVal)) {
                         tr[i].remove();

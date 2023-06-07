@@ -72,7 +72,60 @@
             <div id="main_middle">
                 <h2><b>게시판 관리</b></h2>
                 <hr>
-                
+                <div class="search">
+                    <select id="" style="width: 20%;" onchange="findType(this.value);">
+                        <option value="all">전체</option>
+                        <option value="notice">공지사항</option>
+                        <option value="freeBoard">자유게시판</option>
+                        <option value="QandA">Q&A</option>
+                    </select>
+                    <span>
+                        <input type="text" id="" placeholder="제목 또는 작성자를 입력해주세요" style="width: 250px;">
+                        <button id="findName" onclick="findName();"><i class="fa-solid fa-magnifying-glass" style="color: blue;"></i></button>
+                    </span>
+                    <button>공지사항 등록</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>유형</th>
+                            <th>제목</th>
+                            <th>작성자</th>
+                            <th>작성일</th>
+                            <th>관리</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="no1" class="notice">
+                            <td>공지사항</td>
+                            <td>25일 새벽 3시경 로그인 오류 안내</td>
+                            <td style="color: rgb(28, 161, 28); font-weight: bold;">관리자</td>
+                            <td>2023-05-25</td>
+                            <td><button class="out" onclick="out(no1);">삭제</button></td>
+                        </tr>
+                        <tr id="no2" class="freeBoard">
+                            <td>자유게시판</td>
+                            <td>후기) 랑콤 비 파씰</td>
+                            <td>KH02</td>
+                            <td>2023-05-24</td>
+                            <td><button class="out" onclick="out(no2);">삭제</button></td>
+                        </tr>
+                        <tr id="no3" class="notice">
+                            <td>공지사항</td>
+                            <td>6월 할인행사 제품</td>
+                            <td style="color: rgb(28, 161, 28); font-weight: bold;">관리자</td>
+                            <td>2023-05-24</td>
+                            <td><button class="out" onclick="out(no3);">삭제</button></td>
+                        </tr>
+                        <tr id="no4" class="QandA">
+                            <td>Q&A</td>
+                            <td>배송 지연 관련 문의</td>
+                            <td>jys</td>
+                            <td>2023-05-23</td>
+                            <td><button class="out" onclick="out(no4);">삭제</button></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <div id="main_right">
                 
@@ -102,27 +155,34 @@
             </div>
         </footer>
         <script>
-            function bye() {
-                const password = document.querySelector("input[type=password]");
-                const check = document.querySelector("input[type=checkbox]");console.log(check.checked);
-                if(password.value != "" && check.checked == true) {
-                    document.querySelector(".finalMention").innerText = "";
-                    const answer = confirm("회원 탈퇴를 진행하시겠습니까?");
-                    if(answer) {
-                        alert("회원 탈퇴 완료");
-                        location.href = "./1.main.html";
-                    } else {
-                        
+            function findType(value) {
+                const tr = document.querySelectorAll("#main_middle tbody tr");
+                for(var i = tr.length-1; i >= 0; i--) {
+                        if(tr[i].className != value) {
+                            tr[i].remove();
+                        }
                     }
+            }
 
-                } else {
-                    document.querySelector(".finalMention").innerText = "비밀번호 입력 후 동의 체크해주세요";
+            function findName() {
+                const inputVal = document.querySelector(".search input").value;
+                const tr = document.querySelectorAll("#main_middle tbody tr");
+                for(var i = 0; i < tr.length; i++) {
+                    if(!tr[i].childNodes[3].innerText.includes(inputVal) && !tr[i].childNodes[5].innerText.includes(inputVal)) {
+                        tr[i].remove();
+                    }
                 }
             }
 
-            document.querySelector("#toTheTop").addEventListener("click", function() {
-                document.documentElement.scrollTop = 0;
-            })
+            function out(value) { 
+                const type = value.childNodes[1].innerText;
+                const id = value.childNodes[5].innerText;
+
+                const final = confirm(type + "\n" + id + " 님의 글을 삭제하시겠습니까?");
+                if(final) {
+                    value.remove();
+                }
+            }
         </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     </body>

@@ -1,3 +1,6 @@
+main {
+  height: 76vh;
+}
 h2 b{
   font-family: 'Nanum Pen Script', cursive;
   font-size: 3rem;
@@ -29,4 +32,29 @@ h2 b{
 #main_left td:hover {
   
   background-color: white;
+}
+#main_middle table {
+  width: 90%;
+  margin: 10% auto;
+  text-align: center;
+  line-height: 2;
+}
+#main_middle td, #main_middle th {
+  border: 1px solid #818080;
+}
+#main_middle th {
+  background-color: #ccc;
+}
+#main_middle button {
+  border-radius: 20px;
+  padding: 0 20px;
+  margin: 5px;
+  font-weight: bold;
+}
+.ok {
+  background-color: rgb(68, 166, 231);
+  color: white;
+}
+.no {
+  background-color: #ccc;
 }

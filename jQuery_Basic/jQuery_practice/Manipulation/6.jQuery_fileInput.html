@@ -9,7 +9,12 @@
 </head>
 <body>
     <script>
-        
+        const addFile = () => {
+            $("div").append("<input type=\"file\">");
+        }
+        const delFile = () => {
+            $("div").children(":last()").not("[type=button]").remove();
+        }
     </script>
     <div>
         <input type="file">

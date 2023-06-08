@@ -169,11 +169,8 @@
         <script>
             function period(value) {
                 if(value == "2022") {
-                    document.querySelector("#main_middle tbody").style.opacity = "0";
-                } else {
-                    document.querySelector("#main_middle tbody").style.opacity = "1";
+                    document.querySelector("#main_middle tbody").remove();
                 }
-                    
             }
             document.querySelector("#toTheTop").addEventListener("click", function() {
                 document.documentElement.scrollTop = 0;

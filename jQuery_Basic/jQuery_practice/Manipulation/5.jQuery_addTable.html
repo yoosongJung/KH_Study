@@ -13,7 +13,12 @@
 </head>
 <body>
     <script>
-        
+        const add = () => {
+            const title = $("[name=title]").val();
+            const content = $("[name=content]").val();
+            const owner = $("[name=owner]").val();
+            $("table").append("<tr><td>" + title + "</td><td>" + content + "</td><td>" + owner + "</td></tr>");
+        }
     </script>
     제목 : <input type="text" name="title"><br> 
     내용 : <input type="text" name="content"><br>

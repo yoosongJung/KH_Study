@@ -158,7 +158,7 @@ main {
             width: 35%;
         }
             #main_notice>p, #main_QA>p {
-                color: red;
+                color: white;
                 font-family: 'Nanum Pen Script', cursive;
                 font-weight: 900;
                 font-size: x-large;
@@ -200,7 +200,7 @@ main {
                 text-align: center;
             }
             #main_right table tr td a img{
-                width: 90%;
+                width: 100%;
             }
             #main_right table tr td {
                 position: relative;
@@ -307,4 +307,20 @@ footer {
             #navbarNavDropdown {
                 background-color: rgba(112, 200, 235, 0.5);
             }
+        }
+        .bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+            opacity: 1;
+        }
+        
+        .bg-video__content {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            
         }

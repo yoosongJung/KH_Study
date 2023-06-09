@@ -19,30 +19,24 @@
     <body>
         <script>
             $(() => {
+                let color = "";
                 $("#img1").on("click", () => {
-                    const red = $("#img1").css("background-color");
-                    $("fieldset").eq(1).children("div").on("click", (e) => {
-                        $(e.target).css("background-color", red);
-                    })
+                    color = $("#img1").css("background-color");
                 })
                 $("#img2").on("click", () => {
-                    const blue = $("#img2").css("background-color");
-                    $("fieldset").eq(1).children("div").on("click", (e) => {
-                        $(e.target).css("background-color", blue);
-                    })
+                    color = $("#img2").css("background-color");
                 })
                 $("#img3").on("click", () => {
-                    const green = $("#img3").css("background-color");
-                    $("fieldset").eq(1).children("div").on("click", (e) => {
-                        $(e.target).css("background-color", green);
-                    })
+                    color = $("#img3").css("background-color");
                 })
                 $("#img4").on("click", () => {
-                    const gold = $("#img4").css("background-color");
-                    $("fieldset").eq(1).children("div").on("click", (e) => {
-                        $(e.target).css("background-color", gold);
-                    })
+                    color = $("#img4").css("background-color");
                 })
+
+                $("div[id$=th]").on("click", (e) => { //화살표함수 쓰면 e.target/function() 쓰면 this 가능
+                    $(e.target).css("background-color", color);
+                })
+                
                 $("#btn1").on("click", () => {
                     $("fieldset").eq(1).children("div").css("background-color", "white");
                 })
